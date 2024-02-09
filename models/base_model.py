@@ -18,7 +18,7 @@ class BaseModel:
         and when it was updated(updated_at) attributes.
         """
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now().isoformat()
+        self.created_at = datetime.datetime.now()
         self.updated_at = self.created_at
 
     def __str__(self):
@@ -38,8 +38,12 @@ class BaseModel:
         """
         Returns a dictionary containing all keys/values of the instance.
         """
-        obj_dict = self.__dict__.copy()
-        obj_dict['__class__'] = type(self).__name__
-        obj_dict['created_at'] = self.created_at.isoformat()
-        obj_dict['updated_at'] = self.updated_at.isoformat()
+        obj_dict = {
+        'my_number': getattr(self, 'my_number', None),
+        'name': getattr(self, 'name', None),
+        '__class__': type(self).__name__,
+        'updated_at': self.updated_at.isoformat(),
+        'id': self.id,
+        'created_at': self.created_at.isoformat()
+        }
         return obj_dict
