@@ -2,10 +2,23 @@
 import uuid
 import datetime
 import json
+from models import storage
 """
 A class called BaseModel
 """
+class BaseModel:
+    def __init__(self, *args, **kwargs):
+        if kwargs:
+            # Initialize object attributes from dictionary representation
+            ...
+        else:
+            # Create new instance
+            ...
+            storage.new(self)
 
+    def save(self):
+        ...
+        storage.save()
 
 class BaseModel:
     """
