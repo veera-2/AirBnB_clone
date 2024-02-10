@@ -8,7 +8,7 @@ from datetime import datetime
 import uuid
 from models.base_model import BaseModel
 from models import storage
-
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """ Contains the functionality for the HBNB console"""
