@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import json
 
+
 class FileStorage:
     """
     A class FileStorage that serializes instances 
@@ -17,7 +18,7 @@ class FileStorage:
 
     def new(self, obj):
         """Sets in __objects the obj with key <obj class name>.id."""
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        key = "{}.{}".format(obj.__name__.__class__, obj.id)
         FileStorage.__objects[key] = obj
 
     def save(self):
